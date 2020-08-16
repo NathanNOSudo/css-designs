@@ -1,0 +1,134 @@
+body {
+  background: #000;
+  color: #fff;
+}
+
+h2 {
+  position: relative;
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Megrim', cursive;
+  text-shadow: 
+        0 0 5px #0bf4f3,
+        0 0 10px #0bf4f3,
+        0 0 20px #0bf4f3,
+        0 0 40px #0bf4f3,
+        0 0 80px #0bf4f3;
+}
+
+.toggle {
+	display: block;
+	text-align: center;
+  user-select: none;
+}
+	.toggle--checkbox {
+    display: none;
+	}
+	.toggle--btn {
+		display: block;
+		margin: 0 auto;
+
+		font-size: 1.4em;
+
+		transition: all 350ms ease-in;
+
+		&:hover {
+			cursor: pointer;
+		}
+	}
+
+	.toggle--btn,
+	.toggle--checkbox,
+	.toggle--feature {
+		&,
+		&:before,
+		&:after {
+			transition: all 250ms ease-in;
+		}
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+		}
+	}
+
+
+@keyframes neon {
+	  0% {
+	    text-shadow: 0 0 10px #fff,
+	               0 0 15px  #fff,
+	               0 0 25px  #fff,
+	               0 0 40px  #0bf4f3,
+	               0 0 70px  #0bf4f3,
+	               0 0 90px  #0bf4f3,
+	               0 0 90px  #0bf4f3;
+	  }
+	  100% {
+	    text-shadow: 0 0 5px #fff,
+	               0 0 10px #fff,
+	               0 0 15px #fff,
+	               0 0 20px #0bf4f3,
+	               0 0 35px #0bf4f3,
+	               0 0 40px #0bf4f3,
+	               0 0 50px #0bf4f3;
+	  }
+	}
+
+	$textColor--active: #fff;
+	$textColor--inactive: #333;
+
+
+	.toggle--neon {
+		margin-top: 0;
+		padding: 50px 0;
+
+		& .toggle--btn {
+		  font-family: 'Megrim', cursive;
+			text-transform: uppercase;
+			font-size: 50px;
+			color: $textColor--inactive;
+
+			// text-shadow: -1px -1px 1px #111, 1px 1px 1px #444;
+
+			/*text-shadow: 0 0 10px transparent,
+	               0 0 15px  transparent,
+	               0 0 25px  transparent,
+	               0 0 40px  transparent,
+	               0 0 70px  transparent,
+	               0 0 90px  transparent,
+	               0 0 90px  transparent;*/
+
+			&:before,
+			&:after {
+				display: inline-block;
+				margin: 0 20px;
+				transition: all 220ms ease-in-out;
+			}
+
+			&:before {
+				content: attr(data-label-off);
+				animation: neon 1.5s ease-in-out infinite alternate;
+				animation-delay: 90ms;
+				color: $textColor--active;
+			}
+			&:after {
+				content: attr(data-label-on);
+			}
+		}
+
+		& .toggle--checkbox {
+			&:checked {
+				& + .toggle--btn {
+					&:before {
+						animation: none;
+						color: $textColor--inactive;
+					}
+					&:after {
+						animation: neon 1.5s ease-in-out infinite alternate;
+						animation-delay: 90ms;
+						color: $textColor--active;
+					}
+				}
+			}
+		}
+	}
