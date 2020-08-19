@@ -9,6 +9,21 @@ body{
   background-size: cover;
   background-repeat: no-repeat;
 }
+p.error2 {
+  font-size: 50px;
+    color: #fff;
+  font-family: 'Oswald', sans-serif;
+  /* border-top: solid ;
+  border-bottom: solid ; */
+}
+
+p.error3 {
+  font-size: 30px;
+    color: #fff;
+  font-family: 'Oswald', sans-serif;
+  /* border-top: solid ;
+  border-bottom: solid ; */
+}
 
 .error{
   font-size: 200px;
@@ -20,7 +35,7 @@ body{
 }
 
 /* Glowing text */
-.error {
+.error, p.error2, p.error3 {
   -webkit-animation: glow 1s ease-in-out infinite alternate;
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
